@@ -3,12 +3,12 @@
 
 EAPI=8
 
-inherit desktop pax-utils xdg
+inherit desktop xdg
 
 DESCRIPTION="A third party music player for Netease Music"
 HOMEPAGE="https://github.com/qier222/YesPlayMusic"
 BASE_URI="https://github.com/qier222/YesPlayMusic/releases/download/v0.4.2"
-SRC_URI="${BASE_URI}/${P}.pacman"
+SRC_URI="${BASE_URI}/yesplaymusic-${PV}.pacman"
 
 LICENSE="MIT"
 SLOT="0"
@@ -28,13 +28,12 @@ RDEPEND="
 
 S="${WORKDIR}"
 
-src_unpack() {
-	:
+src_unpack(){
+	tar xvf "${DISTDIR}/yesplaymusic-${PV}.pacman" || die
 }
 
 src_configure(){
-	tar xvf "${DISTDIR}/${P}.pacman"
-	rm -r "${S}/usr/share/applications"
+	rm -r "${S}/usr/share/applications" || die
 }
 
 src_install(){
