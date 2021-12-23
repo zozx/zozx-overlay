@@ -19,40 +19,40 @@ RESTRICT="mirror strip"
 QA_PRESTRIPPED="*"
 
 DEPEND="
-        app-arch/gzip
-        dev-libs/nss
-        media-libs/alsa-lib
-        net-print/cups
-        x11-libs/gtk+:*
-        x11-libs/libxkbcommon"
+	app-arch/gzip
+	dev-libs/nss
+	media-libs/alsa-lib
+	net-print/cups
+	x11-libs/gtk+:*
+	x11-libs/libxkbcommon"
 
 RDEPEND="
-        ${DEPEND}"
+	${DEPEND}"
 
 S="${WORKDIR}"
 
 QA_PREBUILT="
-        opt/YesPlayMusic/chrome-sandbox
-        opt/YesPlayMusic/libEGL.so
-        opt/YesPlayMusic/libGLESv2.so
-        opt/YesPlayMusic/libffmpeg.so
-        opt/YesPlayMusic/libvk_swiftshader.so
-        opt/YesPlayMusic/libvulkan.so.1
-        opt/YesPlayMusic/swiftshader/libEGL.so
-        opt/YesPlayMusic/swiftshader/libGLESv2.so
-        opt/YesPlayMusic/yesplaymusic
+	opt/YesPlayMusic/chrome-sandbox
+	opt/YesPlayMusic/libEGL.so
+	opt/YesPlayMusic/libGLESv2.so
+	opt/YesPlayMusic/libffmpeg.so
+	opt/YesPlayMusic/libvk_swiftshader.so
+	opt/YesPlayMusic/libvulkan.so.1
+	opt/YesPlayMusic/swiftshader/libEGL.so
+	opt/YesPlayMusic/swiftshader/libGLESv2.so
+	opt/YesPlayMusic/yesplaymusic
 "
 
 src_unpack(){
-        tar xvf "${DISTDIR}/yesplaymusic-${PV}.pacman" || die
+	tar xvf "${DISTDIR}/yesplaymusic-${PV}.pacman" || die
 }
 
 src_install(){
-        insinto "/opt"
-        doins -r "${S}/opt/YesPlayMusic"
-        for si in 16 24 32 48 64 128 256 512; do
-                doicon -s ${si} usr/share/icons/hicolor/${si}x${si}/apps/${PN%-bin}.png
-        done
-        domenu "${FILESDIR}/${PN%-bin}.desktop"
-        fperms 0755 "/opt/YesPlayMusic/yesplaymusic"
+	insinto "/opt"
+	doins -r "${S}/opt/YesPlayMusic"
+	for si in 16 24 32 48 64 128 256 512; do
+		doicon -s ${si} usr/share/icons/hicolor/${si}x${si}/apps/${PN%-bin}.png
+	done
+	domenu "${FILESDIR}/${PN%-bin}.desktop"
+	fperms 0755 "/opt/YesPlayMusic/yesplaymusic"
 }
