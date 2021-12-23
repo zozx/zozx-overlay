@@ -17,14 +17,27 @@ KEYWORDS="~amd64"
 RESTRICT="mirror strip"
 
 QA_PRESTRIPPED="*"
+QA_PREBUILT="*"
+QA_FLAGS_IGNORED="*"
 
 DEPEND="
-	app-arch/gzip
-	x11-libs/gtk+:*
-	dev-libs/nss"
+	app-arch/gzip"
 
 RDEPEND="
-	${DEPEND}"
+	${DEPEND}
+	x11-libs/gtk+:*
+	dev-libs/nss
+	net-dns/c-ares
+	media-video/ffmpeg
+	net-libs/http-parser
+	dev-libs/libappindicator
+	dev-libs/libevent
+	x11-libs/libnotify
+	media-libs/libvpx
+	dev-libs/libxslt
+	sys-libs/zlib[minizip]
+	dev-libs/re2
+	app-arch/snappy"
 
 S="${WORKDIR}"
 
