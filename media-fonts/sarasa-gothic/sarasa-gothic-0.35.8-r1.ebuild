@@ -28,29 +28,10 @@ src_unpack() {
 }
 
 src_configure() {
-	if use classical; then
-		sleep 0 || die
-	else
-		rm *-cl-*.ttf || die
-	fi
-
-	if use l10n_zh; then
-		sleep 0 || die
-	else
-		rm *-c-*.ttf || die
-		rm *-hc-*.ttf || die
-		rm *-tc-*.ttf || die
-	fi
-
-	if use l10n_ja; then
-		sleep 0 || die
-	else
-		rm *-j-*.ttf || die
-	fi
-
-	if use l10n_ko; then
-		sleep 0 || die
-	else
-		rm *-k-*.ttf || die
-	fi
+	use classical || rm *-cl-*.ttf || die
+	use l10n_zh || rm *-c-*.ttf || die
+	use l10n_zh || rm *-hc-*.ttf || die
+	use l10n_zh || rm *-tc-*.ttf || die
+	use l10n_ja || rm *-j-*.ttf || die
+	use l10n_ko || rm *-k-*.ttf || die
 }
