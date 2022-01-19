@@ -29,9 +29,7 @@ src_unpack() {
 
 src_configure() {
 	use classical || rm *-cl-*.ttf || die
-	use l10n_zh || rm *-c-*.ttf || die
-	use l10n_zh || rm *-hc-*.ttf || die
-	use l10n_zh || rm *-tc-*.ttf || die
+	use l10n_zh || rm *-c-*.ttf *-hc-*.ttf *-tc-*.ttf || die
 	use l10n_ja || rm *-j-*.ttf || die
 	use l10n_ko || rm *-k-*.ttf || die
 }
