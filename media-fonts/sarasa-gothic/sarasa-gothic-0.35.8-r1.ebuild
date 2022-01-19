@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="classical l10n_zh l10n_ja l10n_ko"
 
-RESTRICT="mirror strip"
+RESTRICT="mirror"
 
 DEPEND="
 	app-arch/p7zip"
