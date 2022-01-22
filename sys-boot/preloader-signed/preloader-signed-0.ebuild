@@ -19,7 +19,7 @@ S="${WORKDIR}"
 
 src_configure() {
 	mkdir -p preloader-signed
-	cp ${DISTDIR}/{PreLoader,HashTool}.efi preloader-signed
+	cp "${DISTDIR}"/{PreLoader,HashTool}.efi preloader-signed
 }
 
 src_install() {
