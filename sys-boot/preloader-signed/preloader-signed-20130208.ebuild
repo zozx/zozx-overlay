@@ -18,7 +18,7 @@ RESTRICT="mirror"
 S="${WORKDIR}"
 
 src_unpack() {
-	true
+	:
 }
 
 src_install() {
