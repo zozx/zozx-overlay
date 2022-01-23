@@ -6,6 +6,6 @@
         <name>Raymond</name>
     </maintainer>
     <longdescription lang="en">
-        A Preloader which is signed for Secure Boot.
+        A PreLoader which is signed for Secure Boot.
     </longdescription>
 </pkgmetadata>
