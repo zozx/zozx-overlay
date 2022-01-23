@@ -3,7 +3,7 @@
 
 EAPI=8
 
-DESCRIPTION="A Preloader which is signed for Secure Boot."
+DESCRIPTION="A PreLoader which is signed for Secure Boot."
 HOMEPAGE="https://blog.hansenpartnership.com/linux-foundation-secure-boot-system-released"
 SRC_URI="
 	https://blog.hansenpartnership.com/wp-uploads/2013/PreLoader.efi
@@ -17,12 +17,14 @@ RESTRICT="mirror"
 
 S="${WORKDIR}"
 
-src_configure() {
-	mkdir -p preloader-signed
-	cp "${DISTDIR}"/{PreLoader,HashTool}.efi preloader-signed
+src_unpack() {
+	true
 }
 
 src_install() {
-	insinto /usr/share
-	doins -r preloader-signed
+	INSDIR="/usr/share/preloader-signed"
+	dodir "${INSDIR}"
+	insinto "${INSDIR}"
+	doins "${DISTDIR}"/{PreLoader,HashTool}.efi
+	fperms 0755 "${INSDIR}"/{PreLoader,HashTool}.efi
 }
