@@ -24,10 +24,13 @@ RDEPEND="
 
 S="${WORKDIR}"
 
+src_configure() {
+	mv "${S}/Clash for Windows-0.19.7-x64-linux" "${S}/${PN}"
+}
+
 src_install() {
-	dodir "/opt/${PN}"
-	insinto "/opt/${PN}"
-	doins "${S}/Clash for Windows-0.19.7-x64-linux/*"
+	insinto "/opt"
+	doins "${S}/${PN}"
 	doicon -s 512 "${FILESDIR}/${PN}.png"
 	domenu "${FILESDIR}/${PN}.desktop"
 	fperms 0755 "/opt/${PN}/cfw"
