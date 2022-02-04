@@ -33,7 +33,7 @@ src_install() {
 	doins -r "${S}/${PN}"
 	doicon -s 512 "${FILESDIR}/${PN}.png"
 	domenu "${FILESDIR}/${PN}.desktop"
-	fperms 0755 "/opt/${PN}"
+	fperms 0755 "/opt/${PN}" -R
 }
 
 src_postinst() {
