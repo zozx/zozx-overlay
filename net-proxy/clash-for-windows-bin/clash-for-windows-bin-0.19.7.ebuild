@@ -30,7 +30,7 @@ src_configure() {
 
 src_install() {
 	insinto "/opt"
-	doins "${S}/${PN}"
+	doins -r "${S}/${PN}"
 	doicon -s 512 "${FILESDIR}/${PN}.png"
 	domenu "${FILESDIR}/${PN}.desktop"
 	fperms 0755 "/opt/${PN}/cfw"
