@@ -38,5 +38,4 @@ src_install() {
 
 src_postinst() {
 	elog "To use TUN mode, net-firewall/nftables is required."
-	default
 }
