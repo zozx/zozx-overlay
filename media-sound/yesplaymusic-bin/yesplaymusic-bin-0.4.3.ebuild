@@ -3,51 +3,35 @@
 
 EAPI=8
 
-inherit desktop xdg
+inherit desktop
 
 DESCRIPTION="A third party music player for Netease Music"
 HOMEPAGE="https://github.com/qier222/YesPlayMusic"
-BASE_URI="https://github.com/qier222/YesPlayMusic/releases/download/v${PV}"
-SRC_URI="${BASE_URI}/yesplaymusic-${PV}.pacman"
+SRC_URI="https://github.com/qier222/YesPlayMusic/releases/download/v${PV}/${PN%-bin}-${PV}.pacman"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-RESTRICT="mirror strip"
+RESTRICT="mirror"
 
 QA_PRESTRIPPED="*"
+QA_PREBUILT="*"
 
-DEPEND="
-	app-arch/gzip
+RDEPEND="
 	dev-libs/nss
 	media-libs/alsa-lib
 	net-print/cups
-	x11-libs/gtk+:*
+	x11-libs/gtk+:3=
 	x11-libs/libxkbcommon"
-
-RDEPEND="
-	${DEPEND}"
 
 S="${WORKDIR}"
 
-QA_PREBUILT="
-	opt/YesPlayMusic/chrome-sandbox
-	opt/YesPlayMusic/libEGL.so
-	opt/YesPlayMusic/libGLESv2.so
-	opt/YesPlayMusic/libffmpeg.so
-	opt/YesPlayMusic/libvk_swiftshader.so
-	opt/YesPlayMusic/libvulkan.so.1
-	opt/YesPlayMusic/swiftshader/libEGL.so
-	opt/YesPlayMusic/swiftshader/libGLESv2.so
-	opt/YesPlayMusic/yesplaymusic
-"
-
-src_unpack(){
-	tar xvf "${DISTDIR}/yesplaymusic-${PV}.pacman" || die
+src_unpack() {
+	tar xvf "${DISTDIR}/${PN%-bin}-${PV}.pacman" || die
 }
 
-src_install(){
+src_install() {
 	insinto "/opt"
 	doins -r "${S}/opt/YesPlayMusic"
 	for si in 16 24 32 48 64 128 256 512; do
