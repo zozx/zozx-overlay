@@ -21,8 +21,7 @@ done
 RESTRICT="mirror strip"
 
 DEPEND="
-	app-admin/chrpath
-	app-arch/xz-utils"
+	app-admin/chrpath"
 RDEPEND="
 	${DEPEND}
 	media-libs/mesa
