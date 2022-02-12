@@ -5,7 +5,7 @@ EAPI=8
 
 inherit desktop
 
-DESCRIPTION="A third party music player for Netease Music"
+DESCRIPTION="A third party music player for Netease Music."
 HOMEPAGE="https://github.com/qier222/YesPlayMusic"
 SRC_URI="https://github.com/qier222/YesPlayMusic/releases/download/v${PV}/${PN%-bin}-${PV}.pacman"
 
