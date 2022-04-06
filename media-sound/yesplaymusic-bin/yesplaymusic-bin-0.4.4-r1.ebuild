@@ -8,7 +8,7 @@ inherit desktop xdg
 DESCRIPTION="A third party music player for Netease Music"
 HOMEPAGE="https://github.com/qier222/YesPlayMusic"
 BASE_URI="https://github.com/qier222/YesPlayMusic/releases/download/v${PV}"
-SRC_URI="${BASE_URI}/yesplaymusic-${PV}.pacman"
+SRC_URI="${BASE_URI}-1/${PN%-bin}-${PV}-1.pacman"
 
 LICENSE="MIT"
 SLOT="0"
@@ -44,7 +44,7 @@ QA_PREBUILT="
 "
 
 src_unpack(){
-	tar xvf "${DISTDIR}/yesplaymusic-${PV}.pacman" || die
+	tar xvf "${DISTDIR}/yesplaymusic-${PV}-1.pacman" || die
 }
 
 src_install(){
