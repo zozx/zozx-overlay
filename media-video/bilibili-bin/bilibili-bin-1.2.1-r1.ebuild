@@ -19,7 +19,7 @@ QA_PRESTRIPPED="*"
 S="${WORKDIR}"
 
 src_prepare(){
-	rm -r "${S}/usr/share/doc"
+	rm -r "${S}/usr/share/doc" || die
 	default
 }
 
