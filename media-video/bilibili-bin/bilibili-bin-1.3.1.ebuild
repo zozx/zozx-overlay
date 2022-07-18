@@ -9,7 +9,7 @@ DESCRIPTION="Bilibili desktop client"
 HOMEPAGE="https://github.com/msojocs/${PN%-bin}-linux"
 SRC_URI="${HOMEPAGE}/releases/download/v${PV}-1/io.github.msojocs.${PN%-bin}_${PV}-1_amd64.deb"
 
-LICENSE="MIT"
+LICENSE="no-source-code"
 SLOT="0"
 KEYWORDS="~amd64"
 
