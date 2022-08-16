@@ -12,7 +12,6 @@ SRC_URI="https://github.com/Fndroid/clash_for_windows_pkg/releases/download/${PV
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+tun"
 
 RESTRICT="mirror"
 
@@ -22,8 +21,7 @@ QA_PREBUILT="*"
 RDEPEND="
 	x11-libs/gtk+:3
 	x11-libs/libXScrnSaver
-	dev-libs/nss
-	tun?( net-firewall/nftables )"
+	dev-libs/nss"
 
 S="${WORKDIR}"
 
@@ -41,5 +39,6 @@ src_install() {
 }
 
 pkg_postinst() {
+	ewarn "To use TUN mode, net-firewall/nftables is required."
 	xdg_icon_cache_update
 }
