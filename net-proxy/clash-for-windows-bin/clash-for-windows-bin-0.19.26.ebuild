@@ -22,10 +22,8 @@ QA_PREBUILT="*"
 RDEPEND="
 	x11-libs/gtk+:3
 	x11-libs/libXScrnSaver
-	dev-libs/nss"
-if use tun; then
-	RDEPEND+="net-firewall/nftables"
-fi
+	dev-libs/nss
+	tun?( net-firewall/nftables )"
 
 S="${WORKDIR}"
 
