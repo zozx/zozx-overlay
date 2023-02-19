@@ -7,28 +7,37 @@ inherit desktop xdg unpacker
 
 DESCRIPTION="Bilibili desktop client"
 HOMEPAGE="https://github.com/msojocs/${PN%-bin}-linux"
-SRC_URI="${HOMEPAGE}/releases/download/v${PV}-3/io.github.msojocs.${PN%-bin}_${PV}-3_amd64.deb"
+SRC_URI="https://github.com/msojocs/${PN%-bin}-linux/releases/download/v${PV}-3/io.github.msojocs.${PN%-bin}_${PV}-3_amd64.deb"
 
 LICENSE="no-source-code"
 SLOT="0"
 KEYWORDS="~amd64"
+IUSE="wayland"
 
-RESTRICT="mirror strip"
-QA_PRESTRIPPED="*"
+RDEPEND="
+	dev-libs/nss
+	media-libs/alsa-lib
+	x11-libs/gtk+:=
+	x11-libs/libxkbcommon
+	x11-libs/libX11
+	x11-libs/libXext
+	x11-libs/libxcb
+	x11-misc/xdg-utils
+	wayland? ( dev-libs/wayland )
+	x11-libs/libvdpau
+"
+
+RESTRICT="mirror"
+QA_PREBUILT="*"
+QA_DESKTOP_FILE="usr/share/applications/io.github.msojocs.bilibili.desktop"
 
 S="${WORKDIR}"
-
-src_prepare(){
-	rm -r "${S}/usr/share/doc" || die
-	default
-}
 
 src_install(){
 	insinto "/opt/apps"
 	doins -r "${S}/opt/apps/io.github.msojocs.${PN%-bin}"
 	domenu "${S}/usr/share/applications/io.github.msojocs.${PN%-bin}.desktop"
-	insinto "/usr/share/icons/hicolor/scalable/apps"
-	doins "${S}/usr/share/icons/hicolor/scalable/apps/io.github.msojocs.${PN%-bin}.svg"
+	doicon -s scalable "${S}/usr/share/icons/hicolor/scalable/apps/io.github.msojocs.${PN%-bin}.svg"
 	fperms 0755 "/opt/apps/io.github.msojocs.${PN%-bin}/files/bin/bin/${PN%-bin}"
 	fperms 0755 "/opt/apps/io.github.msojocs.${PN%-bin}/files/bin/electron/electron"
 }
