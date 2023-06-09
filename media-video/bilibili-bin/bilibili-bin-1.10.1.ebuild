@@ -7,7 +7,7 @@ inherit desktop xdg unpacker
 
 DESCRIPTION="Bilibili desktop client"
 HOMEPAGE="https://github.com/msojocs/${PN%-bin}-linux"
-SRC_URI="${HOMEPAGE}/releases/download/v${PV}-2/io.github.msojocs.${PN%-bin}_${PV}-2_amd64.deb"
+SRC_URI="${HOMEPAGE}/releases/download/v${PV}-4/io.github.msojocs.${PN%-bin}_${PV}-4_amd64.deb"
 
 LICENSE="no-source-code"
 SLOT="0"
